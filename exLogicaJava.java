@@ -7,9 +7,11 @@ public class exLogicaJava {
         Scanner n = new Scanner(System.in);
         Scanner atv = new Scanner(System.in);
         
-        int atividade;
-        int atividade2;
-        int selec;
+        int ATIVIDADE;
+        int ATIVIDADE2;
+        int ATIVIDADE3;
+        int ATIVIDADE4;
+        int SELEC;
         
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         Date data = new Date();
@@ -20,12 +22,14 @@ public class exLogicaJava {
             System.out.println("SELECIO OS CASES");
             System.out.println("(1) LOGICA SIMPLES");
             System.out.println("(2) LOGICA COM ESTRUTURA DE REPETIÇÃO E OPERADORES RELACIONAIS");
+            System.out.println("(3) LOGICA INTERMEDIARIOS E AVANÇADOS");
+            System.out.println("(4) MONITORIA");
             System.out.println("(0) FINALIZAR");
             System.out.println();
             System.out.print("SELECIONE O CATÁLOGO: ");
-            selec = n.nextInt();
+            SELEC = n.nextInt();
 
-            switch (selec){
+            switch (SELEC){
             case 1: 
                 do{      
                     System.out.println("<>=====================================<>"); 
@@ -41,13 +45,13 @@ public class exLogicaJava {
                     System.out.println("(8) VALOR TOTAL DO PEDIDO");
                     System.out.println("(9) REAJUSTE SALÁRIAL");
                     System.out.println("(10) PREVISÃO DE ARRECADAÇÃO");
-                    System.out.println("(0) SAIR");
+                    System.out.println("(0) VOLTAR PARA O INICIO");
                     System.out.println();
                     System.out.print("SELECIONE O EXERCICIO: ");
-                    atividade = n.nextInt();
+                    ATIVIDADE = n.nextInt();
                     System.out.println("<>=====================================<>");
 
-                    switch (atividade){
+                    switch (ATIVIDADE){
                         case 1:
                             System.out.println("- CALCULO DA ÁREA DO QUADRADO -");
                             
@@ -208,7 +212,7 @@ public class exLogicaJava {
                             //System.out.println(">>OBRIGADO POR USAR O SISTEMA, VOLTE SEMPRE.<<");
                         //atv.close();
                     }
-                }while(atividade!=0); 
+                }while(ATIVIDADE!=0); 
             break;
             case 2:
                 do{
@@ -221,16 +225,24 @@ public class exLogicaJava {
                     System.out.println("(4) NUMERO DO MÊS");
                     System.out.println("(5) DESCONTO NA COMPRA");
                     System.out.println("(6) TITULO DE ELEITOR");
-                    System.out.println("(7) DESCONTO DO PLANO DE SAÚDE");
+                    System.out.println("(7) DESCONTO DO SALÁRIO");
                     System.out.println("(8) DIA ÚTIL OU FINAL DE SEMANA");
                     System.out.println("(9) FAIXA ETÁRIA");
-                    System.out.println("(10) rascunho");
-                    System.out.println("(0) SAIR ");
+                    System.out.println("(10) DECRETAÇÃO DE FERIADO");
+                    System.out.println("(11) BLOQUEIO DE ESTRADA");
+                    System.out.println("(12) TRABALHANDO COM STRING");
+                    System.out.println();
+                    System.out.println("ATIVIDADES COM ESTRUTURA REPET. E CHAR ");
+                    System.out.println("(13) VALOR DO IMPOSTO");
+                    System.out.println("(14) VALOR MENSALIDADE");
+                    System.out.println("(15) LER DOIS NUMEROS");
+                    System.out.println("(16) QUINZENA DO MÊS");
+                    System.out.println("(0) VOLTAR PARA O INICIO ");
                     System.out.println();
                     System.out.print("SELECIONE O EXERCICIO: ");
-                    atividade2 = n.nextInt();
+                    ATIVIDADE2 = n.nextInt();
 
-                    switch(atividade2){
+                    switch(ATIVIDADE2){
                         case 1:
                             System.out.println("RENDA FAMILIAR");
                             System.out.println("<>--------------------------<>");
@@ -293,22 +305,25 @@ public class exLogicaJava {
                         case 5:
                             System.out.println("DESCONTO NA COMPRA");
                             System.out.println("<>--------------------------<>");
-
+                            //ENTRADA
                             System.out.println("SISTEMA DE GERENCIAMENTO");
                             System.out.println();
                             System.out.print("Insira o valor da compra: ");
                             Double valorCompra = atv.nextDouble();
-
+                            //PROCESSAMENTO
                             Double valorDesconto = valorCompra * 0.10;
                             Double valorCompraDesconto = valorCompra - valorDesconto;
                             System.out.println();
 
                             if(valorCompra > 1000){
-                                //para paresntar 2 casas decimais (PRINTF em seguida %2.f e apresentar a variável com virgula)
-                                System.out.printf("Valor do Desconto: R$%.2f", valorDesconto);
-                                System.out.println();
-                                System.out.println("Valor da Compra com o desconto aplicado: R$" + valorCompraDesconto);
+                                //para paresntar 2 casas decimais (PRINTF em seguida %2.f e apresentar a variável com virgula) /n <- é para pular linha. 
+                                System.out.println("Valor do Desconto: R$" + valorDesconto);
+                                System.out.println("Valor da compra com o desconto aplicado: R$" + valorCompraDesconto);
+                            }else{
+                                System.out.println("Valor do desconto: R$"+ valorDesconto);
+                                System.out.println("Valor da compra: R$" + valorCompra);
                             }
+                            System.out.println();
                         break;
                         case 6:
                             System.out.println("TITULO DE ELEITOR");
@@ -328,21 +343,24 @@ public class exLogicaJava {
                             System.out.println("Sua idade em meses: " + converIdadeMeses);
                         break;
                         case 7: 
-                            System.out.println("DESCONTO DO PLANO DE SAÚDE");
+                            System.out.println("DESCONTO DO SALÁRIO");
                             System.out.println("<>--------------------------<>");
+                            
+                            Double DESCONTO_MAIOR = 200.0;
+                            Double DESCONTO_MENOR = 100.0;
 
                             System.out.print("Insira seu salário: ");
                             Double salarioBruto = atv.nextDouble();
 
-                            Double descontoA = salarioBruto - 100.0;
-                            Double descontoB = salarioBruto - 200.0;
-
                             System.out.println();
+                            //declarar a várial "Global" acima de if e else se a mesma variával recebe dois ou mais valores.
+                            Double desconto;
                             if(salarioBruto <= 3000){
-                                System.out.println("Salário com desconto aplicado: R$" + descontoA);
-                            } if(salarioBruto > 3000){
-                                System.out.println("Salário com desconto aplicado: R$" + descontoB);
+                               desconto = salarioBruto - DESCONTO_MENOR;
+                            }else{
+                               desconto = salarioBruto - DESCONTO_MAIOR;
                             }
+                            System.out.println("Salario liquido com desconto aplicado: R$" + desconto);
                         break;
                         case 8: 
                             System.out.println(" DIA ÚTIL OU FINAL DE SEMANA");
@@ -357,7 +375,7 @@ public class exLogicaJava {
                             System.out.println();
                             if(diaSemana == 1 || diaSemana == 7){
                                 System.out.println("Dia da semana inserido é um final de semana");
-                            }if(diaSemana >= 2 && diaSemana <= 6){
+                            }else{
                                 System.out.println("Dia da semana inserido é dia útil.");
                             }
                         break;
@@ -372,17 +390,334 @@ public class exLogicaJava {
                             System.out.println("Classificação de faixa etária:");
                             if (idadee <= 14) {
                                 System.out.println("Criança / Adoslecente");
-                            }if (idadee >= 15 && idadee <= 24) {
+                            }else if (idadee >= 15 && idadee <= 24) {
                                 System.out.println("Jovem");
-                            }if (idadee >= 25) {
+                            }else{
                                 System.out.println("Adulto");
                             }
                         break;
+                        case 10: 
+                            System.out.println("DECRETAÇÃO DE FERIADO");
+                            System.out.println("<>--------------------------<>");
+
+                            System.out.println(" >< SISTEMA DO DEPARTAMENTO ><");
+                         
+                            System.out.print("Insira a dia: ");
+                            int dia1 = atv.nextInt();
+                            System.out.print("Insira a temperatura: ");
+                            Double temp = atv.nextDouble();
+                            
+                            System.out.println();
+
+                            if(dia1 == 1 || temp < 0){
+                                System.out.println("* FERIADO DECRETADO *");
+                            }
+                        break;
+                        case 11:
+                            System.out.println("BLOQUEIO DE ESTRADA");
+                             System.out.println("<>--------------------------<>");
+                            System.out.println("SISTEMA");
+                            System.out.println("Temperatura do dia: ");
+                            Double temperaturaDia = atv.nextDouble();
+                            System.out.println("Temperatura Méia: ");
+                            Double temperaturaMedia = atv.nextDouble();
+
+                            if(temperaturaDia < temperaturaMedia){
+                                System.out.println("* ESTRADA BLOQUEADA *");
+                            }else{
+                                if(temperaturaDia < 0 && temperaturaMedia < 0){
+                                     System.out.println("* ESTRADA BLOQUEADA *");
+                                }else{
+                                     System.out.println("* ESTRADA LIBERADA *");
+                                }
+                            }
+                        break;
+                        case 12: 
+                            System.out.println("TRABALHANDO COM STRING");
+                             System.out.println("<>--------------------------<>");
+                            System.out.println("SISTEMA");
+                            System.out.println();
+                            
+                            System.out.println("Insira o nome: ");
+                            String name = atv.nextLine();
+                            System.out.println("Insira idade: ");
+                            int idade1 = atv.nextInt();
+                            if(idade1 < 12){
+                                System.out.println("Procure um pediatra");
+                            }else if (idade1 <= 50){
+                                System.out.println("Procure clínica geral");
+                            } else {
+                                System.out.println("Procure um geriatra");
+                            }
+                        break;
+                        case 13:
+                            System.out.println("VALOR DO IMPOSTO");
+                            System.out.println("<>--------------------------<>");
+                            
+                            //tipo P = 25% & S = 5%
+                            System.out.println("SISTEMA");
+                            System.out.print("Insira o valor do produto: R$");
+                            Double valor2 = atv.nextDouble();
+                            System.out.print("Insira o tipo do produto: (P/S)");
+                            char tipo = atv.next().charAt(0);
+
+                            double IMPOSTOMAIOR = valor2 * 0.25;
+                            double IMPOSTOMENOR = valor2 * 0.05;
+
+                            if(tipo == 'p' ||  tipo == 'P'){
+                                System.out.println("R$" + IMPOSTOMAIOR);
+                            } if(tipo == 's' ||  tipo == 'S'){
+                                System.out.println("R$" + IMPOSTOMENOR);
+                            }
+                        break;
+                        case 14:
+                            System.out.println("VALOR DA MENSALIDADE");
+                            System.out.println("<>--------------------------<>");
+
+                            System.out.println("SISTEMA ESCOLAR");
+                            System.out.println();
+
+                            System.out.println("INSIRA O TIPO DE BOLSA DO ALUNO");
+                            System.out.println("(T) TOTAL");
+                            System.out.println("(P) PARCIAL (50%)");
+                            System.out.println("(X) SEM BOLSA");
+                            System.out.print("SELECIONE:");
+                            char bolsaEscolar = atv.nextLine().charAt(0);
+                            System.out.println();
+
+                            System.out.print("INSIRA O VALOR DA MENSALIDADE: ");
+                            double valorMensalidade = atv.nextDouble();
+                            System.out.println();
+                           
+                            //Sempre colocar o Scanner(atv) para não recber o valor de cima 
+                            atv.nextLine();
+
+                            System.out.println("INSIRA O TURNO DO ALUNO");
+                            System.out.println("(M) Manhã");
+                            System.out.println("(N) Noite");
+                            System.out.print("SELECIONE:");
+                            char turno = atv.nextLine().charAt(0);
+                            
+                            double BOLSA50 = (valorMensalidade / 2) - valorMensalidade;
+                            double DESCONTOMANHA = (valorMensalidade * 0.2) - valorMensalidade;
+                            Double BOLSA70 = (valorMensalidade * 0.7) - valorMensalidade;
+
+                            if (bolsaEscolar == 't' || bolsaEscolar == 'T'){
+                                System.out.println("> Aluno tem 100% de desconto <");
+                                System.out.println();
+                                System.out.println("VALOR DA MENSALIDADE: R$0,00");
+                            //Quando tiver duas condiões de CHAR no if como temos em P e X colocar () para o processo de comparação so ocorrer dentro dos parenteses.
+                            }else if( (bolsaEscolar == 'p' || bolsaEscolar == 'P') && (turno == 'M' ||  turno == 'm')){
+                                System.out.println("> Aluno tem 70 % de desconto <");
+                                System.out.println();
+                                System.out.println("VALOR DA MENSALIDADE: R$" + BOLSA70);
+                            }else if(bolsaEscolar == 'p' || bolsaEscolar == 'P'){
+                                System.out.println("> Aluno tem 50% de desconto <");
+                                System.out.println();
+                                System.out.println("VALOR DA MENSALIDADE: R$" + BOLSA50);
+                            }else if ((bolsaEscolar == 'x' || bolsaEscolar == 'X') && (turno == 'M' || turno == 'm')){
+                                System.out.println("> Aluno tem 20% de desconto <");
+                                System.out.println();
+                                System.out.println("VALOR MENSALIDADE: R$" + DESCONTOMANHA);
+                            }else{
+                                System.out.println("> Não há desconto <");
+                                System.out.println();
+                                System.out.println("VALOR DA MENSALIDADE: R$" + valorMensalidade);
+                            }
+                        break;
+                        case 15: 
+                            System.out.println("LER DOIS NUMEROS");
+                            System.out.println("<>--------------------------<>");
+
+                            System.out.println("INSIRA O DIVIDENDO: ");
+                            Double dividendo = atv.nextDouble();
+                            System.out.println("INSIRA O DIVISOR: ");
+                            Double divisor = atv.nextDouble();
+
+                            if(divisor == 0){
+                                System.out.println("=----------------------------=");
+                                System.out.println("IMPOSÍVEL FAZER A DIVISÃO POR 0");
+                                System.out.println("=----------------------------=");
+                            }else{
+                                double calculo = dividendo / divisor;
+                                System.out.println("=----------------------------=");
+                                System.out.println("RESULTADO: " + calculo);
+                            }
+                        break;
+                        case 16:
+                            System.out.println("> QUINZENA DO MÊS <");
+                            System.out.println("<>--------------------------<>");
+
+                            System.out.print("INSIRA O DIA: ");
+                            int diaMes = atv.nextInt();
+
+                            if(diaMes == 1 || diaMes ==15){
+                                System.out.println("=----------------------------="); 
+                                System.out.println("Dia "+ diaMes + " é o inicio de uma quinzena do mês.");
+                            }else{
+                                System.out.println("Dia" + diaMes + "não é inicio de quinzena.");
+                            }
                     }    
-                }while(atividade2!=0);
-            break;  
+                }while(ATIVIDADE2!=0);
+            break;
+            case 3:  
+                do {
+                    System.out.println("<>=====================================<>");
+                    System.out.println(">>> ATIVIDADE LOG.JAVA.INTERMEDIARIOS E AVANÇADOS. <<<");
+                    System.out.println();
+                    System.out.println("(1) REGISTRO DE HORA EXTRA");
+                    System.out.println("(2) REGISTRO DE FLUXO");
+                    System.out.println("(3) INDICADOR DE AVALIAÇÃO");
+                    System.out.println("(4) DESCONTO DOS ITENS");
+                    System.out.println("(0) VOLTAR PARA O INICIO");
+                    System.out.println();
+                    System.out.print("SELECIONE: ");
+                    ATIVIDADE3 = n.nextInt();
+                    
+                    switch(ATIVIDADE3){
+                        case 1:
+                            System.out.println("HORAS EXTRAS");
+                            System.out.println("<>--------------------------<>");
+
+                            System.out.println("SELECIONE TURNO: ");
+                            System.out.println("(M) Manhã");
+                            System.out.println("(T) Tarde");
+                            System.out.println("(N) Noite");
+                            System.out.println();
+                            System.out.print("INSIRA: ");
+                            //toUpperCase() <= método para deixar todas as letrtas inseridas em maiusculo facilitando o "if else"
+                            char turno = atv.nextLine().charAt(0);
+
+                            System.out.println("INSIRA HORA [0 ~ 22]: ");
+                            int horas = atv.nextInt();
+
+                            if((turno == 'm' || turno == 'M') && (horas < 6) ||
+                               (turno == 'n' || turno == 'N') && (horas >= 22)){
+                                System.out.println();
+                                System.out.println("HORA EXTRA");
+                            }else{
+                                System.out.println();
+                                System.out.println("HORA NORMAL");
+                            }
+                        atv.nextLine();
+                        break;
+                        case 2:
+                            System.out.println("REGISTRO DE FLUXO");
+                            System.out.println("<>--------------------------<>");
+
+                            System.out.println("INSIRA O DIA ANTERIOR: ");
+                            int diaAnterior = atv.nextInt();
+                            System.out.println("INSIRA O DIA ATUAL");
+                            int diaAtual = atv.nextInt();
+                            System.out.println();
+                            System.out.print("REGISTO DE DIAS: " + diaAnterior + ", " + diaAtual + " = ");
+
+                            if(diaAnterior > diaAtual){
+                                System.out.println("NOVO MÊS");
+                            }else{ 
+                                System.out.println("MESMO MÊS");
+                            }
+                        atv.nextLine();
+                        break;
+                        case 3:
+                            System.out.println("INDICADOR DE AVALIAÇÃO");
+                            System.out.println("<>--------------------------<>");
+
+                            //frequência mínima = 75%
+                            System.out.print("INSIRA A PERCENTUAL DE FREQUÊNCIA DO ALUNO: ");
+                            int frequencia = atv.nextInt();
+                            System.out.println();
+                            atv.nextLine();
+
+                            System.out.println("AVALIAÇÃO #1");
+                            System.out.println("(A) Aprovado");
+                            System.out.println("(B) Média");
+                            System.out.println("(C) Reprovado");
+                            System.out.print("SELECIONE: ");
+                            char ava1 = atv.nextLine().toUpperCase().charAt(0);
+                            
+                            System.out.println();
+
+                            System.out.println("AVALIAÇÃO #2");
+                            System.out.println("(A) Aprovado");
+                            System.out.println("(B) Média");
+                            System.out.println("(C) Reprovado");
+                            System.out.print("SELECIONE: ");
+                            char ava2 = atv.nextLine().toUpperCase().charAt(0);
+                            System.out.println();
+
+                            if(frequencia < 75){
+                                System.out.println("REPROVADO POR FALTA...");
+                            }else if (ava1 == 'C' && ava2 == 'C'){
+                                System.out.println("REPROVADO");
+                            }else if((ava1 == 'A' || ava1 == 'B') && (ava2 == 'A' || ava2 == 'B')){
+                                System.out.println("APROVADO");
+                            }else{
+                                System.out.println("INSIRA A NOTA DA SEGUNDA CAHAMDA: ");
+                                System.out.println("(A) Aprovado");
+                                System.out.println("(B) Média");
+                                System.out.println("(C) Reprovado");
+                                System.out.print("SELECIONE: ");
+                                char notaFinal = atv.nextLine().toUpperCase().charAt(0);
+                                System.out.println();
+
+                                if(notaFinal == 'A' || notaFinal == 'B'){
+                                    System.out.println("APROVADO NA FINAL");
+                                } else{
+                                    System.out.println("REPROVADO");
+                                }
+                            }
+                        break;
+                        case 4:
+                            System.out.println("DESCONTO DOS ITENS");
+                            System.out.println("<>--------------------------<>");
+                            
+                            System.out.print("ITEM 1: ");
+                            int item1 = atv.nextInt();
+                             System.out.print("ITEM 2: ");
+                            int item2 = atv.nextInt();
+                             System.out.print("ITEM 3: ");
+                            int item3 = atv.nextInt();
+                            
+                            System.out.println();
+
+                            System.out.print("ENSIRA O VALOR PRODUTO 1: R$");
+                            double valor1 = atv.nextDouble();
+                            System.out.print("ENSIRA O VALOR PRODUTO 2: R$");
+                            double valor2 = atv.nextDouble();
+                            System.out.print("ENSIRA O VALOR PRODUTO 3: R$");
+                            double valor3 = atv.nextDouble();
+                            atv.nextLine();
+
+                            int totalItens = item1 + item2 + item3;
+                            double totalVenda = (item1 * valor1) + (item2 * valor2) + (item3 * valor3);
+                            double valorDesconto = (totalVenda * 0.1);
+
+                            if(((item1 >= 10) && (item2 >= 10)) ||
+                                ((item3 >= 10) && (item2 >= 10)) ||
+                                ((item2 >= 10) && (item3 >= 10))){
+                                
+                                    System.out.println(">> GANHOU 10% DE DESCONTO NO VALOR TOTAL <<");
+                                    System.out.println();
+                                    System.out.println("TOTAL DE ITENS VENDIDOS: " + totalItens);
+                                    System.out.printf("VALOR DO DESCONTO: R$ %.2f\n", valorDesconto);
+                                    System.out.printf("VALOR TOTAL COM DESCONTO APLICADO: R$ %.2f", valorDesconto - totalVenda);
+                                    System.out.println();
+                            }else{
+                                System.out.println("TOTAL DE ITENS VENDIDOS: " + totalItens);
+                                System.out.printf("VALOR TOTAL: R$ %.2f", totalVenda);
+                            }
+
+                        atv.nextLine();
+                        break;
+                    }
+
+                } while (ATIVIDADE3 != 0);
+            break;
+            case 4:
+                System.out.println(">>>> PROCESSO DE DESENVIMENTO <<<<");
         }
-        } while (selec != 0);
+        } while (SELEC != 0);
     } 
     
 }
